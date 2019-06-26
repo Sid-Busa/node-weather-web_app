@@ -9,7 +9,10 @@ const request = require("request")
           }else if(body.error){
                 callback(response.error,undefined)
           }else{
-                callback(undefined,body.currently.summary+ " Temperature is "+body.currently.temperature+" Chances "+body.currently.precipProbability+" % of rain")
+                callback(undefined,body.currently.summary+ " Temperature is "+body.currently.temperature+", Chances "+body.currently.precipProbability+" % of rain "
+                         +",WindSpeed is "+body.currently.windSpeed+" "
+                         +",Pressure is " +body.currently.windSpeed 
+                        )
           }
       })
   }
