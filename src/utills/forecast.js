@@ -9,7 +9,9 @@ const request = require("request")
           }else if(body.error){
                 callback(response.error,undefined)
           }else{
-                callback(undefined,body.currently.summary+ " Temperature is "+body.currently.temperature+", Chances "+body.currently.precipProbability+" % of rain "
+              const Temperature = ((body.currently.temperature-32)*(5/9))
+              const fixed = Temperature.toFixed(2)
+                callback(undefined,body.currently.summary+ " Temperature is "+fixed+", Chances "+body.currently.precipProbability+" % of rain "
                          +",WindSpeed is "+body.currently.windSpeed+" "
                          +",Pressure is " +body.currently.windSpeed 
                         )
